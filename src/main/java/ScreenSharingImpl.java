@@ -24,4 +24,9 @@ public class ScreenSharingImpl extends UnicastRemoteObject implements ScreenShar
             throw new RemoteException("Failed to capture screenshot: " + e.getMessage());
         }
     }
+
+    public Point requestMousePosition() throws RemoteException {
+        PointerInfo pointerInfo = MouseInfo.getPointerInfo();
+        return pointerInfo.getLocation();
+    }
 }
